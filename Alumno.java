@@ -16,10 +16,11 @@ public class Alumno {
         edad = edadAlumno;
         if (nombre.length() < 3){
             System.out.println("El nombre introducido es demasiado corto");
-        }
-        if (numeroMatricula.length() < 4){
+            if (numeroMatricula.length() < 4){
             System.out.println("El nunmero matricula introducido es demasiado corto");
+            }
         }
+        
     }
     /**
      * Devuelve el nombre completo del alumno
@@ -47,6 +48,14 @@ public class Alumno {
      * en su cuenta de Github en formato de 7 caracateres
      */
     public String getNombreUsuarioGithub() {
-        return nombre.substring(0, 3) + numeroMatricula.substring(0, 4);
+         int lonMaxNombre =3;
+         int lonMaxNumeroMatricula =4;
+         if (nombre.length() < 3){
+             lonMaxNombre = nombre.length ();
+         }
+         if (numeroMatricula.length() < 4){
+             lonMaxNumeroMatricula = numeroMatricula.length ();
+         }
+         return nombre.substring(0, lonMaxNombre) + numeroMatricula.substring(0, lonMaxNumeroMatricula);
     }
 }
